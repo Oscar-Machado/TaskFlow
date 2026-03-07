@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor //Contrutor com tudo
 @NoArgsConstructor //Contrutor vazio
-@Table (name = "task")
+@Table (name = "tasks")
 public class Task {
 
     @Id
@@ -37,7 +37,7 @@ public class Task {
     @NotNull
     @Min(value = 1, message = "The minimum value is 1")
     @Max(value = 3, message = "O maximum value is 3")
-    private Integer difficulty;
+    private Integer priority;
 
     @ManyToOne //indica um user pode ter varias tasks
     @JoinColumn (name = "user_id") //cria a FK user_id

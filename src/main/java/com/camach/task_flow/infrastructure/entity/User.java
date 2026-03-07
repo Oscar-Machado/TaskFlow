@@ -1,6 +1,7 @@
 package com.camach.task_flow.infrastructure.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -26,6 +27,7 @@ public class User {
 
     @Email
     @NotBlank //Não permitir que o valor seja null
+    @Column(unique = true)
     private String email;
 
     @NotBlank
@@ -33,6 +35,7 @@ public class User {
 
     @OneToMany (mappedBy = "user") //Permite que o user use a FK criada em Task.java
                                    // sem criar uma nova coluna
+    @JsonIgnore
     private List<Task> tasks;
 
     private LocalDateTime horaInsercao = LocalDateTime.now();
