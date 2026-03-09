@@ -17,11 +17,6 @@ public class TaskService {
 
     //Vamos fazer a criação dos metodos, será curto porque o JpaRepository já criou para nós os metodos
 
-    //Listar tarefas por Usuario
-    public List<Task> getTaskByUser (Long userId){
-        return taskRepository.findByUserId(userId);
-    }
-
     //Criar Task
     public Task createTask (Task task){
 
@@ -55,12 +50,13 @@ public class TaskService {
     }
 
     //Ordem de Validade e Prioridade Geral
-    public List<Task> findAllTasks (){
+    public List<Task> getAllTasks (){
         return taskRepository.findAllByOrderByDeadlineAscPriorityDesc();
     }
 
     //Ordem de Validade e Prioriadade por Usuário
-    public List<Task> findTasksById (Long userId){
+    public List<Task> getTasksByUserId
+    (Long userId){
         return taskRepository.findByUserIdOrderByDeadlineAscPriorityDesc(userId);
     }
 }
